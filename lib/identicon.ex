@@ -13,9 +13,7 @@ defmodule Identicon do
     |> save_image(input)
   end
 
-  def save_image(image, input) do
-    File.write("#{input}.png",image)
-  end
+  def save_image(image, input), [do: File.write("#{input}.png",image)]
 
   def draw_image(%Identicon.Image{color: color, pixel_map: pixel_map}) do
     image = :egd.create(250,250)
